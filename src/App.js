@@ -1,9 +1,14 @@
 import './App.css';
+import SearchEngine from './SearchEngine';
 
 function App() {
   return (
     <div>
-      Dictionary App
+      <main>
+        Dictionary App
+        <SearchEngine />
+      </main>
+      <footer>coded by bridget bidigare</footer>
     </div>
   );
 }
