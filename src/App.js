@@ -5,7 +5,6 @@ function App() {
   return (
     <div>
       <main>
-        Dictionary App
         <SearchEngine />
       </main>
       <footer>coded by bridget bidigare</footer>
