@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Results from "./Results";
 import Photos from "./Photos";
+import './SearchEngine.css';
 
 export default function SearchEngine() {
     let [keyword, setKeyword] = useState("");
@@ -34,7 +35,13 @@ export default function SearchEngine() {
     return (
         <div>
             <form onSubmit={search}>
-                <input type="search" onChange={handleKeywordChange} />
+                <input type="search" className="searchBar" placeholder="Search" onChange={handleKeywordChange} />
+                <input
+                    type="submit"
+                    value="🔎"
+                    className="magnifier"
+                    title="Search"
+                />
                 <Results results={results} />
                 <Photos photos={photos} />
             </form>

@@ -1,0 +1,14 @@
+.searchBar {
+  margin: 0 0 0 -10px;
+  padding: 4px;
+  background: rgba(224, 219, 224, 0.493);
+  border: none;
+  border-radius: 5px;
+  color: rgb(99, 99, 99);
+}
+
+.magnifier {
+  width: 30px;
+  border: none;
+  background-color: transparent;
+}
