@@ -1,0 +1,22 @@
+.phonetics {
+  margin: 20px;
+}
+
+.phonetics a {
+  color: rgb(53, 9, 53);
+  background-color: rgba(197, 170, 223, 0.767);
+  border-radius: 5px;
+  padding: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 250ms ease-in-out;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.13);
+}
+
+.phonetics a:hover {
+  font-style: italic;
+}
+
+.phonetics span {
+  font-size: 12px;
+}

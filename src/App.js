@@ -5,9 +5,10 @@ import SearchEngine from './SearchEngine';
 function App() {
   return (
     <div>
-      <main>
+      <i className="fa-solid fa-book-bookmark"></i>
+      <main className="container">
         <img src={dictionary} alt="dictionary" className="header" />
-        <SearchEngine />
+        <SearchEngine defaultKeyword="amethyst" />
       </main>
       <footer>
         <a href="https://github.com/bridgetbidigare/dictionary-project"

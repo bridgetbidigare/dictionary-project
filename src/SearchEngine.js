@@ -4,9 +4,10 @@ import Results from "./Results";
 import Photos from "./Photos";
 import './SearchEngine.css';
 
-export default function SearchEngine() {
-    let [keyword, setKeyword] = useState("");
+export default function SearchEngine(props) {
+    let [keyword, setKeyword] = useState(props.defaultKeyword);
     let [results, setResults] = useState(null);
+    let [loaded, setLoaded] = useState(false);
     let [photos, setPhotos] = useState(null);
 
     function handleDictionaryResponse(response) {
@@ -17,9 +18,7 @@ export default function SearchEngine() {
         setPhotos(response.data.photos);
     }
 
-    function search(event) {
-        event.preventDefault();
-
+    function search() {
         let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
         axios.get(apiUrl).then(handleDictionaryResponse);
 
@@ -28,23 +27,38 @@ export default function SearchEngine() {
         axios.get(pexelsApiUrl, { headers: {"Authorization" : `Bearer ${pexelsApiKey}`}}).then(handlePexelsResponse);
     }
 
+    function handleSubmit(event) {
+        event.preventDefault();
+        search();
+    }
+
     function handleKeywordChange(event) {
        setKeyword(event.target.value);
     }
 
-    return (
-        <div>
-            <form onSubmit={search}>
-                <input type="search" className="searchBar" placeholder="Search" onChange={handleKeywordChange} />
-                <input
-                    type="submit"
-                    value="🔎"
-                    className="magnifier"
-                    title="Search"
-                />
-                <Results results={results} />
-                <Photos photos={photos} />
-            </form>
-        </div>
-    )
+    function load() {
+        setLoaded(true);
+        search();
+    }
+
+    if (loaded) {
+        return (
+            <div>
+                <form onSubmit={handleSubmit}>
+                    <input type="search" className="searchBar" placeholder="Search" onChange={handleKeywordChange} />
+                    <input
+                        type="submit"
+                        value="🔎"
+                        className="magnifier"
+                        title="Search"
+                    />
+                    <Results results={results} />
+                    <Photos photos={photos} />
+                </form>
+            </div>
+        )
+    } else {
+        load();
+        return "Loading";
+    }
 }

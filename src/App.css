@@ -1,13 +1,26 @@
 body {
+  margin: 50px auto;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  margin: 50px;
-  background-color: rgba(243, 231, 255, 0.171);
+}
+
+.container {
+  max-width: 550px;
+  min-width: 550px;
+  background-color: rgba(243, 231, 255, 0.452);
+  padding: 30px 35px 100px;
+  border-radius: 7px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.068);
 }
 
 .header {
   width: 500px;
   margin: -130px 0 -120px;
+}
+
+.bookmark {
+  color: purple;
+  width: 100px;
 }
 
 footer {

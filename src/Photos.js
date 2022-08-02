@@ -1,4 +1,5 @@
 import React from "react";
+import './Photos.css';
 
 export default function Photos(props) {
     if (props.photos) {
@@ -9,7 +10,7 @@ export default function Photos(props) {
                     return (
                       <div>
                         <a href={photo.src.original} target="_blank" rel="noreferrer">
-                            <img src={photo.src.landscape} key={index} alt={photo.alt} />
+                            <img src={photo.src.landscape} key={index} alt={photo.alt} className="photos" />
                         </a>
                       </div>
                     );
